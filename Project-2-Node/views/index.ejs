@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📌 To-Do List</h1>
+
+        <!-- Add Task Form -->
+        <div class="add-task">
+            <form action="/add" method="POST">
+                <input type="text" name="title" placeholder="Enter new task" required>
+                <button type="submit">➕ Add</button>
+            </form>
+        </div>
+
+        <!-- Task List -->
+        <ul class="task-list">
+            <% tasks.forEach(task => { %>
+                <li class="task-item">
+                    <span><%= task.title %></span>
+                    <div class="task-actions">
+                        <a href="/edit/<%= task.id %>" class="edit-btn">✏️</a>
+                        <a href="/delete/<%= task.id %>" class="delete-btn">❌</a>
+                    </div>
+                </li>
+            <% }); %>
+        </ul>
+    </div>
+</body>
+</html>
