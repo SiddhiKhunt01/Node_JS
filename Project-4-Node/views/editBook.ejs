@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Book</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Edit Book</h1>
+    <form action="/books/<%= book._id %>?_method=PUT" method="POST">
+      <input type="text" name="title" value="<%= book.title %>"  style="padding: 7px;" required>
+      <input type="text" name="author" value="<%= book.author %>" style="padding: 7px;" required>
+      <input type="number" name="price" value="<%= book.price %>" style="padding: 7px;" required>
+      <input type="number" name="publishedYear" value="<%= book.publishedYear%>" style="padding: 7px; margin-top: 7px;" required>
+      <button type="submit" class="btn-2">Update Book</button>
+    </form>
+  </div>
+</body>
+</html>
