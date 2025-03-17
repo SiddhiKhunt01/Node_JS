@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>update Movie</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevents scrolling */
+    background: #1a1a1a;
+    font-family: Arial, sans-serif;
+}
+
+/* Centering the Login Form */
+.main-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full screen height */
+    padding: 20px;
+}
+
+/* Form Container */
+.card-login {
+    width: 600px;
+    max-height: 90vh; /* Prevent overflow */
+    overflow-y: auto; /* Allow smooth scrolling */
+    padding: 30px;
+    background: #222;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
+    color: white;
+}
+
+/* Hide Scrollbar */
+.card-login::-webkit-scrollbar {
+    display: none;
+}
+.card-login {
+    scrollbar-width: none;
+}
+
+/* Form Row */
+.row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px; /* Increased gap for better spacing */
+}
+
+/* Each Column */
+.col-6 {
+    width: 48%; /* Adjust width for responsiveness */
+}
+
+/* Text Fields */
+.textfield {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px; /* More space between input fields */
+}
+
+.textfield label {
+    margin-bottom: 8px; /* Spacing between label and input */
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.textfield input {
+    width: 90%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ff9900;
+    background: transparent;
+    color: white;
+    outline: none;
+    margin-right: 10px;
+    margin-bottom: 10px; /* Additional space below inputs */
+}
+
+/* Genre Section */
+.genre-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px; /* Space between genre buttons */
+    margin-top: 20px;
+    padding: 10px 0;
+}
+
+/* Genre Buttons */
+.genre-btn {
+    background: #444;
+    border: 1px solid #ff9900;
+    color: white;
+    padding: 10px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.genre-btn:hover {
+    background: #ff9900;
+    color: black;
+}
+
+/* Submit Button */
+.btn-login {
+    width: 100%;
+    padding: 14px;
+    background: #ff9900;
+    border: none;
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 15px; /* Space before submit button */
+}
+
+.btn-login:hover {
+    background: #e68a00;
+}
+
+/* Genre Buttons Container */
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Genre Buttons */
+.checkbox-group label {
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 6px;
+    border: 2px solid #ff9900;
+    background: transparent;
+    color: #ff9900;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hidden Checkboxes */
+.checkbox-group input[type="checkbox"] {
+    display: none;
+}
+
+/* Active Button Style when Checked */
+.checkbox-group input[type="checkbox"]:checked + label {
+    background-color: #ff9900;
+    color: white;
+    border-color: #ff9900;
+}
+
+
+/* Submit Button */
+.btn-login {
+    width: 60%;
+    margin-left: 110px;
+    padding: 12px;
+    background: #ff9900;
+    border: none;
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-login:hover {
+    background: #e68a00;
+}
+
+
+
+
+
+
+</style>
+
+<body>
+
+    <main class="main-login">
+        <form action="/updateMovie/<%=movie.id%>" method="post" enctype="multipart/form-data">
+            <div class="right-login">
+                <div class="card-login">
+                    <div class="row">
+    
+                        <!-- Left Column (Image, Title, Year) -->
+                        <div class="col-6">
+                            <div class="textfield">
+                                <label>Image</label>
+                                <input type="file" name="image" value="<%=movie.image%>">
+                            </div>
+    
+                            <div class="textfield">
+                                <label>Title</label>
+                                <input type="text" name="title" value="<%=movie.title%>">
+                            </div>
+    
+                            <div class="textfield">
+                                <label>Year</label>
+                                <input type="text" name="year" value="<%=movie.year%>">
+                            </div>
+                        </div>
+    
+                        <!-- Right Column (Language, Director, Rating) -->
+                        <div class="col-6">
+                            <div class="textfield">
+                                <label>Language</label>
+                                <input type="text" name="language" value="<%=movie.language%>">
+                            </div>
+    
+                            <div class="textfield">
+                                <label>Director</label>
+                                <input type="text" name="director" value="<%=movie.director%>">
+                            </div>
+    
+                            <div class="textfield">
+                                <label>Rating</label>
+                                <input type="text" name="rating" value="<%=movie.rating%>">
+                            </div>
+                        </div>
+    
+                    </div>
+    
+                    <!-- Genre Selection -->
+                    <div class="genre-container">
+                        <label>Genre</label>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="drama" name="genre" value="drama" <% if(movie.genre.includes('drama')) { %> checked <% } %>>
+                            <label for="drama">Drama</label>
+    
+                            <input type="checkbox" id="crime" name="genre" value="crime" <% if(movie.genre.includes('crime')) { %> checked <% } %>>
+                            <label for="crime">Crime</label>
+    
+                            <input type="checkbox" id="romance" name="genre" value="romance" <% if(movie.genre.includes('romance')) { %> checked <% } %>>
+                            <label for="romance">Romance</label>
+    
+                            <input type="checkbox" id="action" name="genre" value="action" <% if(movie.genre.includes('action')) { %> checked <% } %>>
+                            <label for="action">Action</label>
+    
+                            <input type="checkbox" id="sci_fic" name="genre" value="sci_fic" <% if(movie.genre.includes('sci_fic')) { %> checked <% } %>>
+                            <label for="sci_fic">Sci-Fic</label>
+    
+                            <input type="checkbox" id="fantasy" name="genre" value="fantasy" <% if(movie.genre.includes('fantasy')) { %> checked <% } %>>
+                            <label for="fantasy">Fantasy</label>
+    
+                            <input type="checkbox" id="adventure" name="genre" value="adventure" <% if(movie.genre.includes('adventure')) { %> checked <% } %>>
+                            <label for="adventure">Adventure</label>
+    
+                            <input type="checkbox" id="thriller" name="genre" value="thriller" <% if(movie.genre.includes('thriller')) { %> checked <% } %>>
+                            <label for="thriller">Thriller</label>
+    
+                            <input type="checkbox" id="war" name="genre" value="war" <% if(movie.genre.includes('war')) { %> checked <% } %>>
+                            <label for="war">War</label>
+    
+                            <input type="checkbox" id="mystery" name="genre" value="mystery" <% if(movie.genre.includes('mystery')) { %> checked <% } %>>
+                            <label for="mystery">Mystery</label>
+    
+                            <input type="checkbox" id="history" name="genre" value="history" <% if(movie.genre.includes('history')) { %> checked <% } %>>
+                            <label for="history">History</label>
+                        </div>
+                    </div>
+    
+                    <br>
+                    <button class="btn-login">Update Movie</button>
+                </div>
+            </div>
+        </form>
+    </main>
+    
+</body>
+
+</html>

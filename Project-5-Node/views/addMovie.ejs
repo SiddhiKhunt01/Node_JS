@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+  /* General styles */
+body {
+    background: #181818;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #fff;
+    margin: 0;
+}
+.row{
+    display: flex;
+}
+.col-6{
+    width: 50%;
+}
+.main-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+}
+
+/* Card design */
+.card-login {
+    background: linear-gradient(135deg, #252525, #3a3a3a);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: 700px;
+    text-align: center;
+}
+
+/* Input fields */
+.textfield {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.textfield label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.textfield input {
+    width: 85%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #2c2c2c;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+    border: 1px solid #fff;
+}
+
+.textfield input:focus {
+    background: #3d3d3d;
+}
+
+/* Genre Section */
+.genre-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 15px;
+    background: linear-gradient(135deg, #2a2a2a, #3d3d3d);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.genre-container label {
+    display: flex;
+    align-items: center;
+    background: #444;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 14px;
+    color: #fff;
+}
+
+.genre-container input {
+    display: none;
+}
+
+.genre-container input:checked + label {
+    background: #f39c12;
+    color: #181818;
+    font-weight: bold;
+    box-shadow: 0 2px 10px rgba(255, 193, 7, 0.5);
+}
+
+/* Genre Title */
+.genre-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #fff;
+    display: block;
+}
+
+
+/* Button styling */
+.btn-login {
+    background: #e74c3c;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-login:hover {
+    background: #c0392b;
+}
+
+</style>
+
+<body>
+    <main class="main-login">
+
+
+        <form action="/addMovie" method="post" enctype="multipart/form-data">
+            <div class="right-login">
+                <div class="card-login">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="textfield">
+                                <label>Image</label>
+                                <input type="file" name="image" style="padding: 9px 12px;">
+                            </div>
+        
+                            <div class="textfield">
+                                <label>Title</label>
+                                <input type="text" name="title">
+                            </div>
+        
+                            <div class="textfield">
+                                <label>Year</label>
+                                <input type="date" name="year" style="padding: 9px 15px;">
+                            </div>
+        
+                        </div>
+                        
+                       <div class="col-6">
+                        <div class="textfield">
+                            <label>Language</label>
+                            <input type="text" name="language">
+                        </div>
+    
+                        <div class="textfield">
+                            <label>Director</label>
+                            <input type="text" name="director">
+                        </div>
+                        
+                        <div class="textfield">
+                            <label>Rating</label>
+                            <input type="text" name="rating">
+                        </div>
+                       </div>
+                    </div>
+                    
+                    <br>
+                    <div class="genre-title">Genre</div>
+                    <div class="genre-container">
+                        <input type="checkbox" id="drama" name="genre" value="drama">
+                        <label for="drama">Drama</label>
+                    
+                        <input type="checkbox" id="crime" name="genre" value="crime">
+                        <label for="crime">Crime</label>
+                    
+                        <input type="checkbox" id="romance" name="genre" value="romance">
+                        <label for="romance">Romance</label>
+                    
+                        <input type="checkbox" id="action" name="genre" value="action">
+                        <label for="action">Action</label>
+                    
+                        <input type="checkbox" id="sci_fic" name="genre" value="sci_fic">
+                        <label for="sci_fic">Sci-Fic</label>
+                    
+                        <input type="checkbox" id="fantasy" name="genre" value="fantasy">
+                        <label for="fantasy">Fantasy</label>
+                    
+                        <input type="checkbox" id="adventure" name="genre" value="adventure">
+                        <label for="adventure">Adventure</label>
+                    
+                        <input type="checkbox" id="thriller" name="genre" value="thriller">
+                        <label for="thriller">Thriller</label>
+                    
+                        <input type="checkbox" id="war" name="genre" value="war">
+                        <label for="war">War</label>
+                    
+                        <input type="checkbox" id="mystery" name="genre" value="mystery">
+                        <label for="mystery">Mystery</label>
+                    
+                        <input type="checkbox" id="history" name="genre" value="history">
+                        <label for="history">History</label>
+                    
+                        <input type="checkbox" id="comedy" name="genre" value="comedy">
+                        <label for="comedy">Comedy</label>
+                    </div>
+                    
+                    <button class="btn-login">Add Movie</button>
+                </div>
+            </div>
+        </form>
+    </main>
+</body>
+
+</html>
